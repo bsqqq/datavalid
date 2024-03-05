@@ -45,7 +45,7 @@ export async function dvPfFacial(req: Request, res: Response) {
         if (Object.values([nome, username, password, email]).some(val => !val)) {
             return res.status(422).send({ msg: `algum valor está em branco!` })
         } else if (duplicate.rows[0].exists) {
-            return res.send({ msg: `usuário ${username} já existe! tente outro nome de usuário.` })
+            return res.status(409).send({ msg: `usuário ${username} já existe! tente outro nome de usuário.` })
         }
 
         const hashedPassw = bcrypt.hashSync(password, 10)
