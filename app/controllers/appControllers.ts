@@ -50,7 +50,7 @@ export async function dvPfFacial(req: Request, res: Response) {
 
         const hashedPassw = bcrypt.hashSync(password, 10)
         const creationTime = new Date().toISOString()
-        if (Number(resposta.data.biometria_face?.similaridade) >= 0.85) {
+        if (Number(resposta.data.biometria_face?.similaridade) >= 0.85 && resposta.data.nome_similaridade == 1) {
             await pool.query(
                 "INSERT INTO public.users(name, email, username,\
                                password, create_time) \
@@ -60,7 +60,7 @@ export async function dvPfFacial(req: Request, res: Response) {
             );
             res.send({ msg: "registrado com sucesso!" })
         } else
-            res.send({ msg: "similaridade da face baixa demais para cadastro..." })
+            res.send({ msg: "similaridade da face ou do nome baixa demais para cadastro..." })
 
 
     } catch (error) {
