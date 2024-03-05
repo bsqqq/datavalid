@@ -1,0 +1,7 @@
+como configurar ts nos projetos:
+1. instala as dependencias que tu vai utilizar (express, cors, dotenv, nodemon, etc...)
+2. instala o typescript e as dependencias @types/... destas que vc instalou no passo anterior (npm i typescript ts-node-dev @types/express...)
+3. roda npx tsc --init
+4. no package.json, crie um script pra rodar "nodemon index.ts" (supondo que o arquivo principal se chama index.ts e que está localizado no mesmo diretorio do package.json)
+5. roda o script
+bonus: descomente/habilite a condfig "outDir" quando for buildar o projeto
