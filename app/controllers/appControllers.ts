@@ -55,7 +55,7 @@ export async function dvPfFacial(req: Request, res: Response) {
                 "INSERT INTO public.users(name, email, username,\
                                password, create_time) \
                               VALUES ($1, $2, $3, \
-                              $4, $5::timestamp with time zone) RETURNING *;",
+                              $4, $5::timestamp with time zone);",
                 [nome, email, username, hashedPassw, creationTime]
             );
             res.send({ msg: "registrado com sucesso!" })
