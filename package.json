@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
     "@types/helmet": "^4.0.0",
     "@types/pg": "^8.11.2",
     "axios": "^1.6.7",

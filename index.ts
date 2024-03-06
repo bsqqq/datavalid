@@ -1,6 +1,7 @@
 import express from 'express'
 import { status, dvStatus, dvPfBasica, dvPfFacial, comparePW } from './app/controllers/appControllers'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 import helmet from 'helmet'
 import "dotenv/config"
 
@@ -9,6 +10,8 @@ const app = express()
 app.use(bodyParser.json({limit: '3mb'}))
 
 app.use(helmet())
+
+app.use(cors())
 
 app.get("/", status)
 
